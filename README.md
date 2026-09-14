@@ -1,22 +1,22 @@
-# PoisonWatch — Data Poisoning Detection for Network Intrusion Detection Systems
+# PoisonWatch  Data Poisoning Detection for Network Intrusion Detection Systems
 
 Final Year BSc Dissertation Project | Middlesex University
 
-PoisonWatch is an end-to-end pipeline for detecting **label-flipping data poisoning attacks** against machine learning-based Network Intrusion Detection Systems (NIDS). It simulates poisoning attacks on a baseline classifier, then uses an unsupervised anomaly detector to catch the poisoned samples — all wrapped in a Flask dashboard so non-technical users can run the analysis and read the results.
+PoisonWatch is an end-to-end pipeline for detecting **label-flipping data poisoning attacks** against machine learning-based Network Intrusion Detection Systems (NIDS). It simulates poisoning attacks on a baseline classifier, then uses an unsupervised anomaly detector to catch the poisoned samples  all wrapped in a Flask dashboard so non-technical users can run the analysis and read the results.
 
 ## Why This Matters
 
-ML-based intrusion detection systems are only as trustworthy as the data they're trained on. An attacker who can flip a small percentage of training labels (e.g. relabeling malicious traffic as benign) can quietly degrade a model's ability to catch real attacks — without ever touching the model itself. This project measures how much damage that does, and builds a detector to catch it before it happens.
+ML-based intrusion detection systems are only as trustworthy as the data they're trained on. An attacker who can flip a small percentage of training labels (e.g. relabeling malicious traffic as benign) can quietly degrade a model's ability to catch real attacks  without ever touching the model itself. This project measures how much damage that does, and builds a detector to catch it before it happens.
 
 ## How It Works
 
-1. **Upload & preprocessing** — A user uploads a CSV (e.g. a UNSW-NB15 export). All columns are label-encoded and scaled to prepare the feature matrix.
-2. **Anomaly detection** — An Isolation Forest flags suspicious/anomalous rows in the uploaded data, using a user-adjustable contamination estimate (the expected proportion of anomalous samples).
-3. **Baseline classifier** — A Random Forest classifier is trained on a held-out split of the data to report a baseline accuracy score for the dataset as provided.
-4. **Visualization** — A bar chart contrasts clean vs. flagged samples for quick interpretation.
-5. **Dashboard** — All of the above runs through a Flask web app, so a non-technical user can upload a file, set parameters, and get results without touching code.
+1. **Upload & preprocessing**  A user uploads a CSV (e.g. a UNSW-NB15 export). All columns are label-encoded and scaled to prepare the feature matrix.
+2. **Anomaly detection**  An Isolation Forest flags suspicious/anomalous rows in the uploaded data, using a user-adjustable contamination estimate (the expected proportion of anomalous samples).
+3. **Baseline classifier**  A Random Forest classifier is trained on a held-out split of the data to report a baseline accuracy score for the dataset as provided.
+4. **Visualization**  A bar chart contrasts clean vs. flagged samples for quick interpretation.
+5. **Dashboard**  All of the above runs through a Flask web app, so a non-technical user can upload a file, set parameters, and get results without touching code.
 
-*Note: this is an unsupervised anomaly-flagging prototype — it does not simulate label-flipping attacks or score itself against known-poisoned ground truth, so it reports flagged-sample counts and baseline accuracy rather than precision/recall metrics.*
+*Note: this is an unsupervised anomaly-flagging prototype  it does not simulate label-flipping attacks or score itself against known-poisoned ground truth, so it reports flagged-sample counts and baseline accuracy rather than precision/recall metrics.*
 
 ## Example Run
 
@@ -27,7 +27,7 @@ ML-based intrusion detection systems are only as trustworthy as the data they're
 | Suspicious samples flagged (10% contamination) | 17,534 |
 | Baseline model accuracy | 95.83% |
 
-*(Run against the UNSW-NB15 training set. `attack_cat` and `id` are excluded from the feature set — `attack_cat` near-perfectly determines the label and would otherwise cause data leakage.)*
+*(Run against the UNSW-NB15 training set. `attack_cat` and `id` are excluded from the feature set  `attack_cat` near-perfectly determines the label and would otherwise cause data leakage.)*
 
 ## Tech Stack
 
@@ -71,7 +71,7 @@ Then open `http://127.0.0.1:5000` in your browser.
 
 - Unsupervised anomaly detection (Isolation Forest) can flag suspicious training samples in network traffic data without needing pre-labeled examples of poisoning.
 - Pairing this with a baseline supervised classifier gives a quick, interpretable picture of both data quality and model performance side by side.
-- This tool is a proof-of-concept — flagged samples indicate rows worth further investigation, not a definitive poisoning verdict.
+- This tool is a proof-of-concept  flagged samples indicate rows worth further investigation, not a definitive poisoning verdict.
 
 ## Future Work
 
@@ -81,4 +81,4 @@ Then open `http://127.0.0.1:5000` in your browser.
 
 ## Author
 
-[Your Name] — [LinkedIn] · [Email]
+Ugochukwu Michael Onwuka · michaelonwuka224@gmail.com
